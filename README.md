@@ -1,15 +1,17 @@
 # 🚗 Sensor Data Analysis & Outlier Detection (Python)
 
 ## 📌 Overview
-This project focuses on processing and analyzing raw automotive sensor data generated from test bench systems. The data is unstructured and contains missing values, inconsistencies, and noise.
+This project focuses on processing and analyzing raw automotive sensor data generated from test bench systems. The raw data is highly unstructured, containing missing values, inconsistent formats, and noise.
 
-The goal was to convert this raw data into a clean time-series dataset and detect anomalies using statistical techniques.
+The solution converts this raw data into a clean time-series dataset, applies statistical techniques to detect anomalies, and visualizes patterns to support engineering analysis.
+
+> ⚠️ Note: This repository uses synthetic sample data for demonstration. The original data cannot be shared due to confidentiality.
 
 ---
 
 ## 🎯 Objective
-- Convert raw .txt files into structured datasets
-- Clean and preprocess sensor data
+- Convert raw `.txt` test data into structured datasets
+- Clean and preprocess time-series sensor data
 - Detect anomalies using statistical methods
 - Visualize trends and outliers for analysis
 
@@ -20,40 +22,69 @@ The goal was to convert this raw data into a clean time-series dataset and detec
 - Matplotlib / Seaborn
 - File handling (glob, os)
 - Excel / CSV output
+- Statistical methods (moving average, rolling window, standard deviation)
 
 ---
 
-## ⚙️ Work Done
+## ⚙️ Methodology
 
-### 1. Data Processing
-- Read multiple raw .txt files
-- Merged into a single dataset
-- Standardized timestamps and column names
+### 1️⃣ Automated Raw File Processing
+- Read multiple `.txt` files from test bench output
+- Parsed and merged them into a single dataset
+- Standardized column names and timestamp formats
 
-### 2. Data Cleaning
-- Handled missing values
+### 2️⃣ Data Cleaning & Preprocessing
+- Handled missing and invalid sensor readings
+- Converted text logs into numeric values
 - Removed duplicate timestamps
-- Converted logs into numeric format
+- Synchronized data frequency for consistency
 
-### 3. Feature Engineering
+### 3️⃣ Time-Series Feature Engineering
+Created derived features to analyze trends:
+- Moving Average / Running Average
 - Rolling Mean
-- Moving Average
 - Rolling Standard Deviation
 - Signal smoothing
+- Helper columns for anomaly tracking
 
-### 4. Outlier Detection
+### 4️⃣ Outlier Detection
+Applied statistical techniques:
 - Rolling mean ± k * standard deviation
 - Threshold-based anomaly detection
+- Identified abnormal spikes in sensor values like speed and torque
 
-### 5. Visualization
-- Time-series plots
-- Highlighted outliers
-- Trend comparison (raw vs smoothed)
+### 5️⃣ Data Visualization
+- Time-series line plots
+- Highlighted outliers in red
+- Trend comparison (raw vs smoothed signals)
+- Helped engineers quickly identify abnormal patterns
+
+---
+
+## 📊 Sample Output
+- Clean time-series dataset
+- Graphs showing trends and anomalies
+- Highlighted abnormal data points
+
+---
+
+## 🚧 Challenges Faced
+- Handling unstructured raw files
+- Missing and inconsistent sensor data
+- Aligning timestamps across multiple files
+- Noise in real-time sensor signals
 
 ---
 
 ## 📈 Impact
-- Reduced manual processing time from hours to minutes
-- Improved detection of faulty sensor readings
-- Enabled faster engineering analysis
+- Reduced manual data processing time from hours to minutes
+- Improved identification of faulty sensor readings
+- Enabled faster and more accurate engineering analysis
+- Automated visualization improved decision-making
 
+---
+
+## 🚀 Future Improvements
+- Implement machine learning-based anomaly detection
+- Real-time data pipeline integration
+- Dashboard integration for live monitoring
